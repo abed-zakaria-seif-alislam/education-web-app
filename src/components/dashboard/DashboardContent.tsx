@@ -17,13 +17,9 @@ import {
   Crown
 } from 'lucide-react';
 import Link from 'next/link';
+import { DashboardProps } from '@/types';
 
-interface DashboardContentProps {
-  user: any;
-  profile: any;
-}
-
-export default function DashboardContent({ user, profile }: DashboardContentProps) {
+export default function DashboardContent({ profile }: DashboardProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('all');
   const router = useRouter();

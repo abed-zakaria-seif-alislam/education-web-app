@@ -6,6 +6,7 @@ import { supabase } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Eye, EyeOff, Mail, Lock, ArrowLeft } from 'lucide-react';
+import { AuthError } from '@/types';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -31,8 +32,9 @@ export default function LoginPage() {
       if (data.user) {
         router.push('/dashboard');
       }
-    } catch (error: any) {
-      setError(error.message);
+    } catch (error) {
+      const authError = error as AuthError;
+      setError(authError.message);
     } finally {
       setLoading(false);
     }

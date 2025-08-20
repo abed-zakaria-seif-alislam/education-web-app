@@ -6,17 +6,7 @@ import { supabase } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Eye, EyeOff, Mail, Lock, User, ArrowLeft, GraduationCap } from 'lucide-react';
-
-interface University {
-  id: string;
-  name: string;
-  wilaya: string;
-}
-
-interface Department {
-  id: string;
-  name: string;
-}
+import { University, Department, AuthError } from '@/types';
 
 export default function SignUpPage() {
   const [formData, setFormData] = useState({
@@ -116,8 +106,9 @@ export default function SignUpPage() {
 
         router.push('/dashboard');
       }
-    } catch (error: any) {
-      setError(error.message);
+    } catch (error) {
+      const authError = error as AuthError;
+      setError(authError.message);
     } finally {
       setLoading(false);
     }

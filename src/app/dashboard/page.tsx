@@ -1,6 +1,8 @@
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import DashboardContent from '@/components/dashboard/DashboardContent';
+import { User } from '@supabase/supabase-js';
+import { Profile } from '@/types';
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -24,7 +26,10 @@ export default async function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-umedify-background">
-      <DashboardContent user={session.user} profile={profile} />
+      <DashboardContent 
+        user={session.user as User} 
+        profile={profile as Profile | null} 
+      />
     </div>
   );
 }
