@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 250 250; /* #FAFAFA */
+    --foreground: 31 41 55; /* #1F2937 */
+    --card: 0 0% 100%;
+    --card-foreground: 31 41 55;
+    --popover: 0 0% 100%;
+    --popover-foreground: 31 41 55;
+    --primary: 264 51% 66%; /* #7E57C2 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 256 44% 47%; /* #512DA8 */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 264 42% 74%; /* #9575CD */
+    --accent-foreground: 31 41 55;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 264 51% 66%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 31 41 55;
+    --foreground: 250 250 250;
+    --card: 31 41 55;
+    --card-foreground: 250 250 250;
+    --popover: 31 41 55;
+    --popover-foreground: 250 250 250;
+    --primary: 264 51% 66%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 256 44% 47%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 264 42% 74%;
+    --accent-foreground: 250 250 250;
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 264 51% 66%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  }
+  
+  /* Arabic font fallback */
+  [dir="rtl"] {
+    font-family: 'Noto Kufi Arabic', 'Arabic UI Text', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom UMEDIFY styles */
+.gradient-bg {
+  background: linear-gradient(135deg, #7E57C2 0%, #9575CD 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #7E57C2 0%, #512DA8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
